@@ -1,0 +1,33 @@
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCFEmOPY04flXH-QpMMAGeJA"/>
+ <title>BadMouseProductions</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCFEmOPY04flXH-QpMMAGeJA"/>
+  <title>CPGB-ML: An Infantile Disorder</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=IjGPm6qjIWk"/>
+  <title>From Liberal to Communist: My political 'Journey'</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=UP9R-W1yaXo"/>
+  <title>Unheard Voices of West Asia and North Africa</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=afuFaLoAhGs"/>
+  <title>Terfs in 10 seconds</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=AYAb2D3F6RQ"/>
+  <title>The problem with Freedom of Speech</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=spnACWU5XjY"/>
+  <title>Is China Socialist? The Debate</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ryaBIjSlteU"/>
+  <title>Why was East Germany so 'Poor'?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=otMtz4w94Qs"/>
+  <title>Joanna Hausmann is lying about Venezuela</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=jTTzA9yrZW4"/>
+  <title>EarthBound Stream 01 - With BadMouse&amp;Natu</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=fbNxWk9oKUE"/>
+  <title>Why 'Communism' is Important</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=TumR7eTc_-c"/>
+  <title>China, DSA, and Books! Christmas Q&amp;A</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=jTj7UnnQflk"/>
+  <title>Questions Liberals can't answer (But Socialists can)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=frU21i9CJKI"/>
+  <title>The Lies of Red Ice TV</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4M7evppIN6A"/>
+  <title>Taxation is Theft?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=tGy_StiU7yo"/>
+  <title>May Day 2018 Vlogalooza (with PhilosophyTube)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=etCTPzb3drE"/>

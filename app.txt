@@ -1,0 +1,5 @@
+surf
+youtube-dl --all-subs
+youtube-dl -f bestaudio
+mpv
+firefox

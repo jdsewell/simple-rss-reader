@@ -1,0 +1,11 @@
+#!/bin/sh
+fzf --color=bw --margin=15% < ~/.feed/urls | cut -d "|" -f 2 | cut -d " " -f 2 | xargs -r -I {} curl "{}" | grep "<title\|<link" > ~/.feed/feed.txt
+cat ~/.feed/feed.txt | grep "<title" | sed 's/<title*>//g' | sed 's/<\/title*>//g' > ~/.feed/titles.txt
+cat ~/.feed/feed.txt | grep "<link" | grep http | sed 's/http/\nhttp/g' | grep ^http | sed 's/\(^http[^ <]*\)\(.*\)/\1/g' > ~/.feed/links.txt
+num=`nl ~/.feed/titles.txt | fzf --color=bw --margin=25%| awk '{print $1}'`
+if [ "$num" != "" ]
+then
+	link=`cat ~/.feed/links.txt | sed -n "${num}p"`
+	app=`cat ~/.feed/app.txt | fzf --color=bw`
+	$app $link &
+fi
