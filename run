@@ -1,7 +1,7 @@
 #!/bin/sh
 fzf --color=bw --margin=15% < ~/.feed/urls | cut -d "|" -f 2 | cut -d " " -f 2 | xargs -r -I {} curl "{}" | grep "<title\|<link" > ~/.feed/feed.txt
-cat ~/.feed/feed.txt | grep "<title" | sed 's/<title*>//g' | sed 's/<\/title*>//g' > ~/.feed/titles.txt
-cat ~/.feed/feed.txt | grep "<link" | grep http | sed 's/http/\nhttp/g' | grep ^http | sed 's/\(^http[^ <]*\)\(.*\)/\1/g' > ~/.feed/links.txt
+grep "<title" ~/.feed/feed.txt | sed 's/<title*>//g' | sed 's/<\/title*>//g' > ~/.feed/titles.txt
+grep "<link" ~/.feed/feed.txt | grep http | sed 's/http/\nhttp/g' | grep ^http | sed 's/\(^http[^ <]*\)\(.*\)/\1/g' | sed 's/"\/>//g' | sed 's/]]>//g' > ~/.feed/links.txt
 num=`nl ~/.feed/titles.txt | fzf --color=bw --margin=25%| awk '{print $1}'`
 if [ "$num" != "" ]
 then
