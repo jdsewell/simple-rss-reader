@@ -1,0 +1,24 @@
+#!/bin/sh
+clear
+nl ~/.feed/urls
+printf "Enter Choice: "
+read selected_feed
+sed -n "${selected_feed}p" ~/.feed/urls | cut -d "|" -f 2 | cut -d " " -f 2 | xargs -r -I {} curl "{}" | grep "<title\|<link" > ~/.feed/feed.txt
+grep "<title" ~/.feed/feed.txt | sed 's/<title*>/\n/g' | sed 's/<\/title*>//g' | awk 'NF' > ~/.feed/titles.txt
+grep "<link" ~/.feed/feed.txt | grep http | sed 's/http/\nhttp/g' | grep ^http | sed 's/\(^http[^ <]*\)\(.*\)/\1/g' | sed 's/"\/>//g' | sed 's/]]>//g' | grep -v channel_id > ~/.feed/links.txt
+clear
+nl ~/.feed/titles.txt
+printf "Enter Choice: "
+read selected_entry
+
+#num=`nl ~/.feed/titles.txt | fzf --color=bw --margin=25%| awk '{print $1}'`
+if [ "$selected_entry" != "" ]
+then
+	link=`cat ~/.feed/links.txt | sed -n "${selected_entry}p"`
+	nl ~/.feed/app.txt
+	printf "Enter Choice: "
+	read selected_app
+	app=`sed -n "${selected_app}p" ~/.feed/app.txt`
+	$app $link &
+fi
+clear
