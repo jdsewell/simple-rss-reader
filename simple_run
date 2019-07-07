@@ -1,11 +1,11 @@
 #!/bin/sh
 clear
-nl ~/simple-feed/urls
+sed s'/^/_|_  /' ~/simple-feed/urls | nl | sed '/^$/d' | sed G
 printf "Enter Choice: "
 read -r selected_feed
 sed -n "${selected_feed}p" ~/simple-feed/urls | cut -d "|" -f 2 | cut -d " " -f 2 | xargs -r -I {} curl "{}" | grep "<title\|<link" > ~/simple-feed/feed.txt
 clear
-grep "<title" ~/simple-feed/feed.txt | sed 's/<title*>/\n/g' | sed 's/<\/title*>//g' | awk 'NF' | nl | tac
+grep "<title" ~/simple-feed/feed.txt | sed 's/<title*>/\n/g' | sed 's/<\/title*>//g' | awk 'NF' | sed 's/^/_|_  /' | nl | sed '/^$/d' | sed G | tac
 printf "Enter Choice: "
 read -r selected_entry
 if [ "$selected_entry" != "" ]
