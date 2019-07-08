@@ -1,0 +1,13 @@
+#!/bin/sh
+feed=$(rofi -dmenu -i -p "Feed" < ~/simple-feed/urls | awk -F\| '{print $NF}' | awk '{print $NF}')
+if [ "$feed" != "" ] 
+then
+	curl "$feed" | grep "<title\|<link" > ~/simple-feed/feed.txt
+	selected_entry=$(grep "<title" ~/simple-feed/feed.txt | sed 's/<title*>/\n/g' | sed 's/<\/title*>//g' | awk 'NF' | nl | rofi -dmenu -i -p "Open" | awk '{print $1}')
+	if [ "$selected_entry" != "" ]
+	then
+		link=$(grep "<link" ~/simple-feed/feed.txt | grep http | sed 's/http/\nhttp/g' | grep ^http | sed 's/\(^http[^ <]*\)\(.*\)/\1/g' | sed 's/"\/>//g' | sed 's/]]>//g' | grep -v channel_id | sed -n "${selected_entry}p")
+		app=$(rofi -dmenu -i -p "App" < ~/simple-feed/app.txt)
+		$app "$link" &
+	fi
+fi
