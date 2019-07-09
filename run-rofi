@@ -1,5 +1,6 @@
 #!/bin/sh
-feed=$(rofi -dmenu -i -p "Feed" < ~/simple-feed/urls | awk -F\| '{print $NF}' | awk '{print $NF}')
+feed_number=$(nl -n ln ~/simple-feed/urls | awk -F\| '{print $1}' | rofi -dmenu -i -p "Feed" | awk '{print $1}')
+feed=$(sed -n "${feed_number}p" ~/simple-feed/urls | awk -F\| '{print $NF}' | awk '{print $NF}')
 if [ "$feed" != "" ] 
 then
 	curl "$feed" | grep "<title\|<link" > ~/simple-feed/feed.txt
