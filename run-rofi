@@ -1,8 +1,8 @@
 #!/bin/sh
 feed_number=$(nl -n ln ~/simple-feed/urls | awk -F\| '{print $1}' | rofi -dmenu -i -p "Feed" | awk '{print $1}')
-feed=$(sed -n "${feed_number}p" ~/simple-feed/urls | awk -F\| '{print $NF}' | awk '{print $NF}')
-if [ "$feed" != "" ] 
+if [ "$feed_number" != "" ] 
 then
+	feed=$(sed -n "${feed_number}p" ~/simple-feed/urls | awk -F\| '{print $NF}' | awk '{print $NF}')
 	curl "$feed" | grep "<title\|<link" > ~/simple-feed/feed.txt
 	selected_entry=$(grep "<title" ~/simple-feed/feed.txt | sed 's/<title*>/\n/g' | sed 's/<\/title*>//g' | awk 'NF' | nl | rofi -dmenu -i -p "Open" | awk '{print $1}')
 	if [ "$selected_entry" != "" ]
